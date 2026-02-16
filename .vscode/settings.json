@@ -1,7 +1,13 @@
 {
-    "github.copilot.chat.commitMessageGeneration.instructions": [
-        {
-            "text": "Follow the conventional commit message format. Use emojis to indicate the type of change, such as '🎨' for any changes or additions to CSS files, '✨' for new features, '🐛' for bug fixes, '📄' for documentation updates. Use multiple emojis for changes to different things. Ensure the message is concise and descriptive and always includes a list of key changes."
-        }
-    ],
+    "chat.promptFilesRecommendations": {
+        "speckit.constitution": true,
+        "speckit.specify": true,
+        "speckit.plan": true,
+        "speckit.tasks": true,
+        "speckit.implement": true
+    },
+    "chat.tools.terminal.autoApprove": {
+        ".specify/scripts/bash/": true,
+        ".specify/scripts/powershell/": true
+    }
 }
