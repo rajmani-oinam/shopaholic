@@ -1,0 +1,66 @@
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	color-scheme: light;
+	--background: #ffffff;
+	--foreground: #111827;
+	--button-background: #f3f4f6;
+	--button-foreground: #111827;
+	--button-border: #d1d5db;
+}
+
+html[data-theme='dark'] {
+	color-scheme: dark;
+	--background: #111827;
+	--foreground: #f9fafb;
+	--button-background: #1f2937;
+	--button-foreground: #f9fafb;
+	--button-border: #374151;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: var(--background);
+	color: var(--foreground);
+	padding: 2rem;
+	line-height: 1.5;
+	transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+main {
+	display: grid;
+	gap: 0.5rem;
+	max-width: 36rem;
+}
+
+h1 {
+	margin: 0 0 0.5rem;
+}
+
+p {
+	margin: 0;
+}
+
+button {
+	width: fit-content;
+	padding: 0.5rem 0.75rem;
+	border: 1px solid var(--button-border);
+	border-radius: 0.5rem;
+	background: var(--button-background);
+	color: var(--button-foreground);
+	cursor: pointer;
+}
+
+.theme-toggle {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	z-index: 10;
+}
