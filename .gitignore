@@ -526,3 +526,16 @@ fabric.properties
 /data
 
 .next/
+# Node.js / Next.js
+node_modules/
+.next/
+out/
+dist/
+*.log
+.env*
+!.env.example
+coverage/
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp

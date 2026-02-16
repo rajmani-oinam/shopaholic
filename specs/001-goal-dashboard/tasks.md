@@ -23,12 +23,12 @@
 
 **Purpose**: Install dependencies, configure Tailwind v4, initialize shadcn/ui, and establish project structure
 
-- [ ] T001 Install Tailwind CSS v4 dependencies (`tailwindcss @tailwindcss/postcss postcss`) and create `postcss.config.mjs` with `@tailwindcss/postcss` plugin
-- [ ] T002 Install `date-fns` dependency
-- [ ] T003 Initialize shadcn/ui with `npx shadcn@latest init` (new-york style, App Router, `@/components/ui` path, `@/lib/utils` helper)
-- [ ] T004 Add shadcn components: `npx shadcn@latest add button card checkbox dialog alert-dialog input label`
-- [ ] T005 Rewrite `app/global.css` with Tailwind directives (`@import "tailwindcss"`) and `@theme` block defining pastel color tokens (pastel-bg, pastel-card, pastel-purple, pastel-blue, pastel-green, pastel-amber, pastel-rose, pastel-text, pastel-muted)
-- [ ] T006 Update `app/layout.tsx` with "Do It" metadata (title, description), Tailwind body classes, and wrap children with `GoalProvider` from `contexts/GoalContext.tsx`
+- [x] T001 Install Tailwind CSS v4 dependencies (`tailwindcss @tailwindcss/postcss postcss`) and create `postcss.config.mjs` with `@tailwindcss/postcss` plugin
+- [x] T002 Install `date-fns` dependency
+- [x] T003 Initialize shadcn/ui with `npx shadcn@latest init` (new-york style, App Router, `@/components/ui` path, `@/lib/utils` helper)
+- [x] T004 Add shadcn components: `npx shadcn@latest add button card checkbox dialog alert-dialog input label`
+- [x] T005 Rewrite `app/global.css` with Tailwind directives (`@import "tailwindcss"`) and `@theme` block defining pastel color tokens (pastel-bg, pastel-card, pastel-purple, pastel-blue, pastel-green, pastel-amber, pastel-rose, pastel-text, pastel-muted)
+- [x] T006 Update `app/layout.tsx` with "Do It" metadata (title, description), Tailwind body classes, and wrap children with `GoalProvider` from `contexts/GoalContext.tsx`
 
 ---
 
@@ -38,11 +38,11 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T007 [P] Create Goal type definitions in `types/Goal.ts` — `GoalStatus` union type, `Goal` interface (id, title, endDate, status, createdAt, completedAt), `NewGoalInput` interface
-- [ ] T008 [P] Create localStorage helpers in `utils/goalStorage.ts` — `loadGoals(): Goal[]`, `saveGoals(goals: Goal[]): void` with try/catch, using storage key `"do-it-goals"`
-- [ ] T009 [P] Create date helper utilities in `utils/dateHelpers.ts` — `daysRemaining(endDate: string): number`, `isApproaching(endDate: string): boolean` (0–3 days), `isOverdue(endDate: string): boolean` (< 0 days) using date-fns `differenceInCalendarDays` and `startOfDay`
-- [ ] T010 Create `GoalContext` with provider in `contexts/GoalContext.tsx` — "use client" component providing `goals: Goal[]`, `addGoal(input: NewGoalInput): void`, `completeGoal(id: string): void`, `deleteGoal(id: string): void`; initialize state as empty array, hydrate from localStorage in useEffect, sync back to localStorage on state changes
-- [ ] T011 Create `useGoals` hook in `hooks/useGoals.ts` — wraps `useContext(GoalContext)` with a guard throw if used outside `GoalProvider`
+- [x] T007 [P] Create Goal type definitions in `types/Goal.ts` — `GoalStatus` union type, `Goal` interface (id, title, endDate, status, createdAt, completedAt), `NewGoalInput` interface
+- [x] T008 [P] Create localStorage helpers in `utils/goalStorage.ts` — `loadGoals(): Goal[]`, `saveGoals(goals: Goal[]): void` with try/catch, using storage key `"do-it-goals"`
+- [x] T009 [P] Create date helper utilities in `utils/dateHelpers.ts` — `daysRemaining(endDate: string): number`, `isApproaching(endDate: string): boolean` (0–3 days), `isOverdue(endDate: string): boolean` (< 0 days) using date-fns `differenceInCalendarDays` and `startOfDay`
+- [x] T010 Create `GoalContext` with provider in `contexts/GoalContext.tsx` — "use client" component providing `goals: Goal[]`, `addGoal(input: NewGoalInput): void`, `completeGoal(id: string): void`, `deleteGoal(id: string): void`; initialize state as empty array, hydrate from localStorage in useEffect, sync back to localStorage on state changes
+- [x] T011 Create `useGoals` hook in `hooks/useGoals.ts` — wraps `useContext(GoalContext)` with a guard throw if used outside `GoalProvider`
 
 **Checkpoint**: Foundation ready — all types, storage, date utilities, and state management are in place
 
@@ -56,9 +56,9 @@
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create `GoalColumn` component in `components/GoalColumn.tsx` — accepts `title: string`, `goals: Goal[]`, `emptyMessage: string`, `type: 'active' | 'completed'`; renders column heading, empty-state message with icon when goals array is empty, and lists `GoalCard` components; column scrolls independently when content overflows
-- [ ] T013 [P] [US1] Create `GoalCard` component in `components/GoalCard.tsx` — accepts `goal: Goal`, optional `onComplete`, `onDelete` callbacks; displays goal title (truncated at 2 lines with ellipsis), days remaining badge for active goals, checkbox for active goals, delete icon button; uses shadcn `Card` for container
-- [ ] T014 [US1] Rewrite `app/page.tsx` as the "Do It" dashboard — "use client" page with header showing "Do It" title and "Add Goal" button; two-column grid layout (`grid-cols-1 sm:grid-cols-2`); left column renders `GoalColumn` with active goals sorted by endDate ascending; right column renders `GoalColumn` with completed goals sorted by completedAt descending; consumes `useGoals()` hook for data
+- [x] T012 [P] [US1] Create `GoalColumn` component in `components/GoalColumn.tsx` — accepts `title: string`, `goals: Goal[]`, `emptyMessage: string`, `type: 'active' | 'completed'`; renders column heading, empty-state message with icon when goals array is empty, and lists `GoalCard` components; column scrolls independently when content overflows
+- [x] T013 [P] [US1] Create `GoalCard` component in `components/GoalCard.tsx` — accepts `goal: Goal`, optional `onComplete`, `onDelete` callbacks; displays goal title (truncated at 2 lines with ellipsis), days remaining badge for active goals, checkbox for active goals, delete icon button; uses shadcn `Card` for container
+- [x] T014 [US1] Rewrite `app/page.tsx` as the "Do It" dashboard — "use client" page with header showing "Do It" title and "Add Goal" button; two-column grid layout (`grid-cols-1 sm:grid-cols-2`); left column renders `GoalColumn` with active goals sorted by endDate ascending; right column renders `GoalColumn` with completed goals sorted by completedAt descending; consumes `useGoals()` hook for data
 
 **Checkpoint**: Dashboard displays two columns with headings and empty states. Goal cards render with title and days remaining. Layout stacks vertically on mobile (< 640 px).
 
@@ -72,8 +72,8 @@
 
 ### Implementation for User Story 2
 
-- [ ] T015 [US2] Create `AddGoalModal` component in `components/AddGoalModal.tsx` — "use client" component using shadcn `Dialog`; accepts `open: boolean`, `onOpenChange: (open: boolean) => void`; contains form with `Input` for title (maxLength 100, required), native date `Input` for end date (required, min today); inline validation: "Title is required" if empty, "End date must be today or later" if past date; on valid submit calls `addGoal` from `useGoals()` and closes dialog; closes on Escape or click outside
-- [ ] T016 [US2] Wire "Add Goal" button in `app/page.tsx` to open `AddGoalModal` — add `useState` for modal open state, render `AddGoalModal` with open/onOpenChange props
+- [x] T015 [US2] Create `AddGoalModal` component in `components/AddGoalModal.tsx` — "use client" component using shadcn `Dialog`; accepts `open: boolean`, `onOpenChange: (open: boolean) => void`; contains form with `Input` for title (maxLength 100, required), native date `Input` for end date (required, min today); inline validation: "Title is required" if empty, "End date must be today or later" if past date; on valid submit calls `addGoal` from `useGoals()` and closes dialog; closes on Escape or click outside
+- [x] T016 [US2] Wire "Add Goal" button in `app/page.tsx` to open `AddGoalModal` — add `useState` for modal open state, render `AddGoalModal` with open/onOpenChange props
 
 **Checkpoint**: Users can create goals. New goals appear in Current Goals column sorted by deadline. Modal validates inputs inline.
 
@@ -87,8 +87,8 @@
 
 ### Implementation for User Story 3
 
-- [ ] T017 [US3] Wire checkbox `onComplete` handler in `GoalCard` component in `components/GoalCard.tsx` — when checkbox is checked on an active goal, call `onComplete(goal.id)`; for completed goals, show a checked/disabled visual indicator (no uncomplete control); completed goals display with strikethrough title text
-- [ ] T018 [US3] Connect `completeGoal` from `useGoals()` to `GoalCard.onComplete` via `GoalColumn` in `app/page.tsx` — pass `completeGoal` as `onComplete` prop to active `GoalColumn`, omit `onComplete` for completed `GoalColumn`
+- [x] T017 [US3] Wire checkbox `onComplete` handler in `GoalCard` component in `components/GoalCard.tsx` — when checkbox is checked on an active goal, call `onComplete(goal.id)`; for completed goals, show a checked/disabled visual indicator (no uncomplete control); completed goals display with strikethrough title text
+- [x] T018 [US3] Connect `completeGoal` from `useGoals()` to `GoalCard.onComplete` via `GoalColumn` in `app/page.tsx` — pass `completeGoal` as `onComplete` prop to active `GoalColumn`, omit `onComplete` for completed `GoalColumn`
 
 **Checkpoint**: Checking a goal's checkbox moves it from Current to Completed. Completed goals show strikethrough and no revert control.
 
@@ -102,8 +102,8 @@
 
 ### Implementation for User Story 4
 
-- [ ] T019 [P] [US4] Create `DeleteConfirm` component in `components/DeleteConfirm.tsx` — uses shadcn `AlertDialog`; accepts `open: boolean`, `onOpenChange: (open: boolean) => void`, `onConfirm: () => void`, `goalTitle: string`; shows "Delete this goal?" message with goal title, Cancel and Delete buttons
-- [ ] T020 [US4] Wire delete flow in `GoalCard` and `app/page.tsx` — `GoalCard` delete icon button opens `DeleteConfirm` (local state for `deleteTargetId`); on confirm, call `deleteGoal(id)` from `useGoals()`; pass `onDelete` callback through `GoalColumn` for both active and completed columns
+- [x] T019 [P] [US4] Create `DeleteConfirm` component in `components/DeleteConfirm.tsx` — uses shadcn `AlertDialog`; accepts `open: boolean`, `onOpenChange: (open: boolean) => void`, `onConfirm: () => void`, `goalTitle: string`; shows "Delete this goal?" message with goal title, Cancel and Delete buttons
+- [x] T020 [US4] Wire delete flow in `GoalCard` and `app/page.tsx` — `GoalCard` delete icon button opens `DeleteConfirm` (local state for `deleteTargetId`); on confirm, call `deleteGoal(id)` from `useGoals()`; pass `onDelete` callback through `GoalColumn` for both active and completed columns
 
 **Checkpoint**: Delete control visible on all goal cards. Clicking shows confirmation. Confirming removes goal permanently. Canceling keeps goal. Deletion persists across refresh.
 
@@ -117,7 +117,7 @@
 
 ### Implementation for User Story 5
 
-- [ ] T021 [US5] Add deadline highlighting styles to `GoalCard` in `components/GoalCard.tsx` — use `isApproaching()` and `isOverdue()` from `utils/dateHelpers.ts`; apply `bg-pastel-amber` (or amber border) for approaching goals, `bg-pastel-rose` (or rose border) for overdue goals; standard goals use `bg-pastel-card`; only apply highlighting to active goals
+- [x] T021 [US5] Add deadline highlighting styles to `GoalCard` in `components/GoalCard.tsx` — use `isApproaching()` and `isOverdue()` from `utils/dateHelpers.ts`; apply `bg-pastel-amber` (or amber border) for approaching goals, `bg-pastel-rose` (or rose border) for overdue goals; standard goals use `bg-pastel-card`; only apply highlighting to active goals
 
 **Checkpoint**: Goals ≤ 3 days from deadline have warm amber highlight. Overdue goals have distinct rose highlight. Goals > 3 days away show no highlight.
 
@@ -127,10 +127,10 @@
 
 **Purpose**: Final refinements affecting multiple user stories
 
-- [ ] T022 [P] Verify responsive layout across viewports (320 px – 2560 px) — ensure columns stack on mobile, no horizontal scroll, touch targets ≥ 44 × 44 px in `app/page.tsx` and `components/GoalCard.tsx`
-- [ ] T023 [P] Verify WCAG AA color contrast for all text against pastel backgrounds — adjust `@theme` tokens in `app/global.css` if any text fails contrast check
-- [ ] T024 [P] Add semantic HTML and ARIA labels — ensure `GoalCard` checkbox has accessible label, `DeleteConfirm` has proper alert dialog role, `AddGoalModal` has dialog aria-label, column headings use proper heading levels
-- [ ] T025 Run `quickstart.md` manual verification checklist in `specs/001-goal-dashboard/quickstart.md` — verify all items pass
+- [x] T022 [P] Verify responsive layout across viewports (320 px – 2560 px) — ensure columns stack on mobile, no horizontal scroll, touch targets ≥ 44 × 44 px in `app/page.tsx` and `components/GoalCard.tsx`
+- [x] T023 [P] Verify WCAG AA color contrast for all text against pastel backgrounds — adjust `@theme` tokens in `app/global.css` if any text fails contrast check
+- [x] T024 [P] Add semantic HTML and ARIA labels — ensure `GoalCard` checkbox has accessible label, `DeleteConfirm` has proper alert dialog role, `AddGoalModal` has dialog aria-label, column headings use proper heading levels
+- [x] T025 Run `quickstart.md` manual verification checklist in `specs/001-goal-dashboard/quickstart.md` — verify all items pass
 
 ---
 
